@@ -1,0 +1,16 @@
+#include <iostream>
+#include <utility>
+using namespace std;
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        int startindex=0, endindex=s.size()-1;
+        while(startindex<endindex){
+            char temp=s[startindex];
+            s[startindex]=s[endindex];
+            s[endindex]=temp;
+            startindex++;
+            endindex--;
+        }
+    }
+};
