@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        //Xor of element
+        int unique_element=nums[0];
+        for(int i=1;i<nums.size();i++){
+            unique_element^=nums[i];
+        }
+        return unique_element;
+        
+    }
+};
