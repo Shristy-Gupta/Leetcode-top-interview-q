@@ -11,6 +11,45 @@
  */
 class Solution {
 public:
+// Iterative approach
+    void inorder_i(TreeNode* root, vector<int>& result) {
+        // Check if the root is NULL
+        if (root == NULL) {
+            return;
+        }
+        
+        // stack variable to the nodes
+        stack<TreeNode*> st;
+        
+        // Initialize the curr variable to root
+        TreeNode* curr = root;
+        
+        while (!st.empty() || curr) {
+            // Check if the current is null or not
+            if (curr) {
+                // Curr is not NULL, push it to stack and
+                // move to left subtree
+                st.push(curr);
+                // Move to left subtree
+                curr = curr->left;
+            }
+            else {
+                // Curr is NULL ie.., reached the child of leaf node
+                // Retrieve the leaf node from stack
+                curr = st.top();
+                st.pop();
+                
+                // Push the root value to the result
+                result.push_back(curr->val);
+                
+                // Now procced to right subtree
+                curr = curr->right;
+            }   
+        }
+        
+        return;        
+    }
+    //Recursive
     void inorder(TreeNode* root, vector<int>* output){
         if(root==NULL){
             return;
