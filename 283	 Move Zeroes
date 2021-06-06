@@ -5,8 +5,7 @@ public:
         if(length<=1){
             return;
         }
-        int first=0;
-        int last=length-1;
+      
         int zero=0,nonzero=0;
         while(zero<length && nonzero<length){
             while(nonzero<length && nums[nonzero]==0){
