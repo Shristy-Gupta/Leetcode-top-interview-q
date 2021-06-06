@@ -1,0 +1,26 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int length=nums.size();
+        if(length<=1){
+            return;
+        }
+        int first=0;
+        int last=length-1;
+        int zero=0,nonzero=0;
+        while(zero<length && nonzero<length){
+            while(nonzero<length && nums[nonzero]==0){
+                nonzero++;
+            }
+            while(zero<length && nums[zero]!=0){
+                zero++;
+            }
+            if(zero<nonzero && nonzero<length){
+                swap(nums[zero],nums[nonzero]);     
+            } 
+            nonzero++;
+            
+        }
+
+    }
+};
