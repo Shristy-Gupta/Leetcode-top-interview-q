@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int ans=int(char(columnTitle[0]))-64;
+        if(columnTitle.length()==1){
+            return ans;
+        }
+        for(int i=1;i<columnTitle.length();i++){
+            ans=ans*26+(int(char(columnTitle[i]))-64);
+        }
+        return ans;
+        
+    }
+};
