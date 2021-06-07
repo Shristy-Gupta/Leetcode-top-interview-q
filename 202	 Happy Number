@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int sum_of_square(int n){
+        int ans=0;
+        while(n!=0){
+            int residue=n%10;
+            ans=ans+(residue*residue);
+            n=n/10;
+        }
+        return ans;
+    }
+    bool isHappy(int n) {
+        
+        while(n!=1 && n!=7){
+            n=sum_of_square(n);
+            if(n!=1 && n!=7 && n<=9){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+};
