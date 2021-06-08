@@ -1,7 +1,7 @@
 /*
 Runtime: 12 ms, faster than 55.41% of C++ online submissions for Roman to Integer.
 Memory Usage: 6 MB, less than 75.04% of C++ online submissions for Roman to Integer.
-
+SWITCH CASE CAN BE USED IN VALUE FUNCTION TO INC THE SPEED
 */
 
 class Solution {
