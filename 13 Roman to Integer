@@ -1,0 +1,79 @@
+/*
+Runtime: 12 ms, faster than 55.41% of C++ online submissions for Roman to Integer.
+Memory Usage: 6 MB, less than 75.04% of C++ online submissions for Roman to Integer.
+
+*/
+
+class Solution {
+public:
+    int value(string c) {
+      if (c == "IV") {
+        return 4;
+      }
+      if (c == "IX") {
+        return 9;
+      }
+      if (c == "XL") {
+        return 40;
+      }
+      if (c == "XC") {
+        return 90;
+      }
+      if (c == "CD") {
+        return 400;
+      }
+      if (c == "CM") {
+        return 900;
+      }
+
+      if (c == "I") {
+        return 1;
+      }
+      if (c == "V") {
+        return 5;
+      }
+      if (c == "X") {
+        return 10;
+      }
+      if (c == "L") {
+        return 50;
+      }
+      if (c == "C") {
+        return 100;
+      }
+      if (c == "D") {
+        return 500;
+      }
+      if (c == "M") {
+        return 1000;
+      }
+        return 0;
+    }
+    int romanToInt(string s) {
+        int n = s.length();
+        int ans = 0;
+        if (n == 0) {
+                    return 0;
+                    }
+        if (n == 1) {
+                    return value(s);
+                    }
+        for (int i = 0; i < n; i++) {
+            
+            //Checking 6 cases
+      if (i + 1 < n && (s[i] == 'I' && s[i + 1] == 'V') || 
+          (s[i] == 'X' && s[i + 1] == 'L') || (s[i] == 'I' && s[i + 1] == 'X') || 
+          (s[i] == 'X' && s[i + 1] == 'C') || (s[i] == 'C' && s[i + 1] == 'D') || 
+          (s[i] == 'C' && s[i + 1] == 'M')){
+          ans += value(s.substr(i, 2));
+          i ++;
+          }
+    else{
+          ans += value(s.substr(i, 1));
+        }
+            
+        }
+        return ans;
+        
+    }
+};
