@@ -1,0 +1,19 @@
+#include<unordered_map>
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char,int> freq;
+        int n=s.length();
+        for(int i=0;i<n;i++){
+            freq[s[i]]++;
+        }
+        int index=-1;
+        for(int i=0;i<n;i++){
+            if(freq[s[i]]==1){
+                index=i;
+                break;
+            }
+        }
+        return index;
+    }
+};
