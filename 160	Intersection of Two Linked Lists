@@ -1,0 +1,72 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *tailA=headA;
+        ListNode *tailB=headB;
+        int nA=0,nB=0;
+        int skipA=0,skipB=0;
+        int smalllength=0;
+        bool ansfound=false;
+        while(tailA!=NULL){
+            nA++;
+            tailA=tailA->next;
+        }
+        while(tailB!=NULL){
+            nB++;
+            tailB=tailB->next;
+        }
+        tailA=headA;
+        tailB=headB;
+        while(tailA!=NULL && tailB!=NULL){
+            if(tailA==tailB && tailA!=NULL && tailB->val==tailA->val){
+               ansfound=true;
+               break;
+            }
+            tailA=tailA->next;
+            tailB=tailB->next;
+            smalllength++;
+        }
+        if(ansfound){
+            //return either
+            return tailB;
+        }
+        if(tailA==NULL && tailB!=NULL){
+            skipB=nB-smalllength;
+        }
+        else if(tailA!=NULL && tailB==NULL){
+            skipA=nA-smalllength;
+        }
+        while(skipA!=0){
+            skipA--;
+            headA=headA->next;
+        }
+        while(skipB!=0){
+            skipB--;
+            headB=headB->next;
+        }
+        while(headA!=NULL && headB!=NULL){
+            
+            if(headA==headB && headB->val==headA->val){
+               ansfound=true;
+               break;
+            }
+            headA=headA->next;
+            headB=headB->next;
+            
+        }
+        if(ansfound){
+            return headB;
+        }
+        else{
+            return NULL;
+        }
+    }
+};
