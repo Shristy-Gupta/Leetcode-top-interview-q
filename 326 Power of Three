@@ -1,0 +1,23 @@
+
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if(n==0){
+            return false;
+        }
+        if(n<0){
+            return false;
+        }
+
+        double x=log(n)/log(3);
+        int k=ceil(x);
+        if(n-ceil(pow(3,k))==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+        
+    }
+};
